@@ -116,5 +116,29 @@
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.BeginTransaction(System.String)">
             <inheritdoc />
         </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.ExecuteAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.ExecuteAsync(System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.ExecuteAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.ExecuteAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
