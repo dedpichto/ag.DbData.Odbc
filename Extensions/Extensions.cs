@@ -3,6 +3,8 @@ using ag.DbData.Odbc.Factories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using ag.DbData.Abstraction.Services;
+using ag.DbData.Odbc.Services;
 
 namespace ag.DbData.Odbc.Extensions
 {
@@ -18,6 +20,8 @@ namespace ag.DbData.Odbc.Extensions
         /// <returns><see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddAgOdbc(this IServiceCollection services)
         {
+            services.AddSingleton<OdbcStringProvider>();
+            services.AddSingleton<IDbDataStringProviderFactory<OdbcStringProvider>, OdbcStringProviderFactory>();
             services.AddSingleton<IOdbcDbDataFactory, OdbcDbDataFactory>();
             services.AddTransient<OdbcDbDataObject>();
             return services;
@@ -31,8 +35,7 @@ namespace ag.DbData.Odbc.Extensions
         /// <returns><see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddAgOdbc(this IServiceCollection services, IConfigurationSection configurationSection)
         {
-            services.AddSingleton<IOdbcDbDataFactory, OdbcDbDataFactory>();
-            services.AddTransient<OdbcDbDataObject>();
+            services.AddAgOdbc();
             services.Configure<DbDataSettings>(configurationSection);
             return services;
         }
@@ -46,8 +49,7 @@ namespace ag.DbData.Odbc.Extensions
         public static IServiceCollection AddAgOdbc(this IServiceCollection services,
             Action<DbDataSettings> configureOptions)
         {
-            services.AddSingleton<IOdbcDbDataFactory, OdbcDbDataFactory>();
-            services.AddTransient<OdbcDbDataObject>();
+            services.AddAgOdbc();
             services.Configure(configureOptions);
             return services;
         }

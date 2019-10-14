@@ -58,12 +58,13 @@
             Represents OdbcDbDataObject object.
             </summary>
         </member>
-        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.#ctor(Microsoft.Extensions.Logging.ILogger{ag.DbData.Abstraction.IDbDataObject},Microsoft.Extensions.Options.IOptions{ag.DbData.Abstraction.DbDataSettings})">
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.#ctor(Microsoft.Extensions.Logging.ILogger{ag.DbData.Abstraction.IDbDataObject},Microsoft.Extensions.Options.IOptions{ag.DbData.Abstraction.DbDataSettings},ag.DbData.Abstraction.Services.IDbDataStringProviderFactory{ag.DbData.Odbc.Services.OdbcStringProvider})">
             <summary>
             Creates new instance of <see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/>.
             </summary>
             <param name="logger"><see cref="T:Microsoft.Extensions.Logging.ILogger"/> object.</param>
             <param name="options"><see cref="T:ag.DbData.Abstraction.DbDataSettings"/> options.</param>
+            <param name="stringProviderFactory"><see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/> object.</param>
         </member>
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.FillDataSet(System.String)">
             <inheritdoc />
@@ -139,6 +140,28 @@
         </member>
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <inheritdoc />
+        </member>
+        <member name="T:ag.DbData.Odbc.Services.OdbcStringProvider">
+            <summary>
+            Represents concrete class inherited from <see cref="T:ag.DbData.Abstraction.Services.DbDataStringProvider"/>.
+            </summary>
+        </member>
+        <member name="T:ag.DbData.Odbc.Services.OdbcStringProviderFactory">
+            <summary>
+            Represents <see cref="T:ag.DbData.Odbc.Services.OdbcStringProviderFactory"/> object.
+            </summary>
+        </member>
+        <member name="M:ag.DbData.Odbc.Services.OdbcStringProviderFactory.#ctor(System.IServiceProvider)">
+            <summary>
+            Creates new instance of <see cref="T:ag.DbData.Odbc.Services.OdbcStringProviderFactory"/>.
+            </summary>
+            <param name="serviceProvider"><see cref="T:System.IServiceProvider"/>.</param>
+        </member>
+        <member name="M:ag.DbData.Odbc.Services.OdbcStringProviderFactory.Get">
+            <summary>
+            Creates object of type <see cref="T:ag.DbData.Odbc.Services.OdbcStringProvider"/>.
+            </summary>
+            <returns>Object of type <see cref="T:ag.DbData.Odbc.Services.OdbcStringProvider"/>.</returns>
         </member>
     </members>
 </doc>
