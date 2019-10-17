@@ -1,6 +1,5 @@
 ﻿using ag.DbData.Abstraction;
 using ag.DbData.Abstraction.Services;
-using ag.DbData.Odbc.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -25,9 +24,9 @@ namespace ag.DbData.Odbc
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/> object.</param>
         /// <param name="options"><see cref="DbDataSettings"/> options.</param>
-        /// <param name="stringProviderFactory"><see cref="OdbcDbDataObject"/> object.</param>
-        public OdbcDbDataObject(ILogger<IDbDataObject> logger, IOptions<DbDataSettings> options, IDbDataStringProviderFactory<OdbcStringProvider> stringProviderFactory) :
-            base(logger, options, stringProviderFactory.Get())
+        /// <param name="stringProvider"><see cref="IDbDataStringProvider"/> object.</param>
+        public OdbcDbDataObject(ILogger<IDbDataObject> logger, IOptions<DbDataSettings> options, IDbDataStringProvider stringProvider) :
+            base(logger, options, stringProvider)
         { }
         #endregion
 

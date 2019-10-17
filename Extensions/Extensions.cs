@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using ag.DbData.Abstraction.Services;
-using ag.DbData.Odbc.Services;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ag.DbData.Odbc.Extensions
 {
@@ -20,8 +20,7 @@ namespace ag.DbData.Odbc.Extensions
         /// <returns><see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddAgOdbc(this IServiceCollection services)
         {
-            services.AddSingleton<OdbcStringProvider>();
-            services.AddSingleton<IDbDataStringProviderFactory<OdbcStringProvider>, OdbcStringProviderFactory>();
+            services.TryAddTransient<IDbDataStringProvider, DbDataStringProvider>();
             services.AddSingleton<IOdbcDbDataFactory, OdbcDbDataFactory>();
             services.AddTransient<OdbcDbDataObject>();
             return services;
