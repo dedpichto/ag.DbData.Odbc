@@ -24,7 +24,7 @@
             <param name="configurationSection">The <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection"/> being bound.</param>
             <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
         </member>
-        <member name="M:ag.DbData.Odbc.Extensions.Extensions.AddAgOdbc(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{ag.DbData.Abstraction.DbDataSettings})">
+        <member name="M:ag.DbData.Odbc.Extensions.Extensions.AddAgOdbc(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{ag.DbData.Odbc.OdbcDbDataSettings})">
             <summary>
             Appends the registration of <see cref="T:ag.DbData.Odbc.Factories.OdbcDbDataFactory"/> and <see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/> services to <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> and configures the options.
             </summary>
@@ -39,6 +39,12 @@
             <summary>
             Represents OdbcDbDataFactory object.
             </summary>
+        </member>
+        <member name="M:ag.DbData.Odbc.Factories.OdbcDbDataFactory.Create">
+            <summary>
+            Creates object of type <see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/>.
+            </summary>
+            <returns><see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/> implementation of <see cref="T:ag.DbData.Abstraction.IDbDataObject"/> interface.</returns>
         </member>
         <member name="M:ag.DbData.Odbc.Factories.OdbcDbDataFactory.Create(System.String)">
             <summary>
@@ -58,7 +64,7 @@
             Represents OdbcDbDataObject object.
             </summary>
         </member>
-        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.#ctor(Microsoft.Extensions.Logging.ILogger{ag.DbData.Abstraction.IDbDataObject},Microsoft.Extensions.Options.IOptions{ag.DbData.Abstraction.DbDataSettings},ag.DbData.Abstraction.Services.IDbDataStringProvider)">
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.#ctor(Microsoft.Extensions.Logging.ILogger{ag.DbData.Abstraction.IDbDataObject},Microsoft.Extensions.Options.IOptions{ag.DbData.Odbc.OdbcDbDataSettings},ag.DbData.Abstraction.Services.IDbDataStringProvider)">
             <summary>
             Creates new instance of <see cref="T:ag.DbData.Odbc.OdbcDbDataObject"/>.
             </summary>
@@ -140,6 +146,11 @@
         </member>
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.GetScalarAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <inheritdoc />
+        </member>
+        <member name="T:ag.DbData.Odbc.OdbcDbDataSettings">
+            <summary>
+            Represents OdbcDbDataSettings object, inherited from <see cref="T:ag.DbData.Abstraction.DbDataSettings"/>.
+            </summary>
         </member>
     </members>
 </doc>

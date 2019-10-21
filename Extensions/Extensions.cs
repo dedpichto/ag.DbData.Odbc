@@ -1,10 +1,9 @@
-﻿using ag.DbData.Abstraction;
+﻿using ag.DbData.Abstraction.Services;
 using ag.DbData.Odbc.Factories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using ag.DbData.Abstraction.Services;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System;
 
 namespace ag.DbData.Odbc.Extensions
 {
@@ -35,7 +34,11 @@ namespace ag.DbData.Odbc.Extensions
         public static IServiceCollection AddAgOdbc(this IServiceCollection services, IConfigurationSection configurationSection)
         {
             services.AddAgOdbc();
-            services.Configure<DbDataSettings>(configurationSection);
+            services.Configure<OdbcDbDataSettings>(opts =>
+            {
+                opts.AllowExceptionLogging = configurationSection.GetValue<bool>("AllowExceptionLogging");
+                opts.ConnectionString = configurationSection.GetValue<string>("ConnectionString");
+            });
             return services;
         }
 
@@ -46,7 +49,7 @@ namespace ag.DbData.Odbc.Extensions
         /// <param name="configureOptions">The action used to configure the options.</param>
         /// <returns><see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddAgOdbc(this IServiceCollection services,
-            Action<DbDataSettings> configureOptions)
+            Action<OdbcDbDataSettings> configureOptions)
         {
             services.AddAgOdbc();
             services.Configure(configureOptions);

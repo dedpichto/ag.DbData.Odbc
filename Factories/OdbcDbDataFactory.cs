@@ -15,6 +15,16 @@ namespace ag.DbData.Odbc.Factories
         /// <summary>
         /// Creates object of type <see cref="OdbcDbDataObject"/>.
         /// </summary>
+        /// <returns><see cref="OdbcDbDataObject"/> implementation of <see cref="IDbDataObject"/> interface.</returns>
+        public IDbDataObject Create()
+        {
+            var dbObject = _serviceProvider.GetService<OdbcDbDataObject>();
+            return dbObject;
+        }
+
+        /// <summary>
+        /// Creates object of type <see cref="OdbcDbDataObject"/>.
+        /// </summary>
         /// <param name="connectionString">Database connection string.</param>
         /// <returns><see cref="OdbcDbDataObject"/> implementation of <see cref="IDbDataObject"/> interface.</returns>
         public IDbDataObject Create(string connectionString)
@@ -23,8 +33,7 @@ namespace ag.DbData.Odbc.Factories
             dbObject.Connection = new OdbcConnection(connectionString);
             return dbObject;
         }
-
-
+        
         /// <summary>
         /// Creates new OdbcDbDataFactory object.
         /// </summary>
