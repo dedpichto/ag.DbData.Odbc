@@ -16,7 +16,7 @@ namespace ag.DbData.Odbc
     /// <summary>
     /// Represents OdbcDbDataObject object.
     /// </summary>
-    public class OdbcDbDataObject : DbDataObject
+    internal class OdbcDbDataObject : DbDataObject
     {
         #region ctor
 

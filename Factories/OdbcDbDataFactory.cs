@@ -8,7 +8,7 @@ namespace ag.DbData.Odbc.Factories
     /// <summary>
     /// Represents OdbcDbDataFactory object.
     /// </summary>
-    public class OdbcDbDataFactory : IOdbcDbDataFactory
+    internal class OdbcDbDataFactory : IOdbcDbDataFactory
     {
         private readonly IServiceProvider _serviceProvider;
 
