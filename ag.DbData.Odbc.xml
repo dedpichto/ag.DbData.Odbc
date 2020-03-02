@@ -123,6 +123,9 @@
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.BeginTransaction(System.String)">
             <inheritdoc />
         </member>
+        <member name="M:ag.DbData.Odbc.OdbcDbDataObject.BeginTransaction">
+            <inheritdoc />
+        </member>
         <member name="M:ag.DbData.Odbc.OdbcDbDataObject.ExecuteAsync(System.String)">
             <inheritdoc />
         </member>
