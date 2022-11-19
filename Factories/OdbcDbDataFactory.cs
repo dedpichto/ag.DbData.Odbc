@@ -33,7 +33,19 @@ namespace ag.DbData.Odbc.Factories
             dbObject.Connection = new OdbcConnection(connectionString);
             return dbObject;
         }
-        
+
+        /// <summary>
+        /// Creates object of type <see cref="OdbcDbDataObject"/>.
+        /// </summary>
+        /// <param name="defaultCommandTimeOut">Replaces default coommand timeout of provider</param>
+        /// <returns></returns>
+        public IDbDataObject Create(int defaultCommandTimeOut)
+        {
+            var dbObject = _serviceProvider.GetService<OdbcDbDataObject>();
+            dbObject.DefaultCommandTimeout = defaultCommandTimeOut;
+            return dbObject;
+        }
+
         /// <summary>
         /// Creates new OdbcDbDataFactory object.
         /// </summary>
